@@ -1,0 +1,16 @@
+<template name="adminPagesUpdate">
+	{{# Layout template="orionBootstrapMediumContentOffset" }}
+		{{# Layout template="orionBootstrapTitle" }}
+            Update page
+		{{/ Layout }}
+		{{# Layout template="orionBootstrapContentContainer" }}
+				{{> quickForm collection=orion.pages.collection schema=getSchema doc=this id="adminPagesUpdateForm" type="update" buttonContent=false }}
+                <br>
+                <div class="buttons text-right">
+                    <a class="btn btn-info cancel-btn" href="{{pages.indexPath}}">Cancel</a>
+                        <a class="btn btn-danger delete-btn" href="{{ pages.deletePath this._id}}">Delete</a>
+                    <a class="btn btn-success save-btn">Save</a>
+                </div>
+		{{/ Layout }}
+	{{/ Layout }}
+</template>

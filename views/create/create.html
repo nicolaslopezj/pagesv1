@@ -1,0 +1,38 @@
+<template name="adminPagesCreate">
+    {{# Layout template="orionBootstrapMediumContentOffset" }}
+        {{# Layout template="orionBootstrapTitle" }}
+            {{# if choosenTemplate }}
+                Create a new page - {{ choosenTemplate.name }}
+            {{ else }}
+                Choose a template
+            {{/ if }}
+        {{/ Layout }}
+        {{# Layout template="orionBootstrapContentContainer" }}
+            {{# if choosenTemplate }}
+                {{> quickForm collection="orion.pages.collection" schema=choosenTemplate.schema id="adminPagesCreateForm" type="insert"  buttonContent=false }}
+                <br>
+                <button id="cancel-btn" class="btn btn-default">Back</button>
+                <button id="submit-btn" class="btn btn-primary">Create</button>
+            {{ else }}
+                    <a href="{{ pathFor 'adminPagesIndex' }}" class="fa fa-chevron-left fa-lg"> Back</a>
+                {{# each templates }}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4>{{ name }}</h4>
+
+                            <p>{{ description }}</p>
+
+                            <p>
+                                <button class="btn btn-primary btn-xs template-choose">
+                                    Choose
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                {{/ each }}
+            {{/ if }}
+        {{/ Layout }}
+    {{ else }}
+        <p><b>No permissions</b></p>
+    {{/ Layout }}
+</template>

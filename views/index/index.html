@@ -1,0 +1,21 @@
+<template name="adminPagesIndex">
+    {{# Layout template="orionBootstrapMediumContentOffset" }}
+        {{# Layout template="orionBootstrapTitle" }}
+            Pages
+            <a href="{{ pathFor 'adminPagesCreate' }}" class="btn btn-default btn-xs"><i class="fa fa-plus"></i></a>
+        {{/ Layout }}
+        {{# Layout template="orionBootstrapContentContainer" }}
+            {{# if pages }}
+                        {{> tabular table=TabularTables.Pages class="table index-table" }}
+            {{ else }}
+                <p>
+                    <i>
+                        You don't have any pages.
+                        <a href="{{ pathFor 'adminPagesCreate' }}">Create</a>
+                    </i>
+                </p>
+            {{/ if }}
+
+        {{/ Layout }}
+    {{/ Layout }}
+</template>
